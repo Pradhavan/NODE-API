@@ -16,13 +16,16 @@ db.on('error', err => {
   console.error('connection error:', err)
 })
 
+
 const cors = require('cors')
-const corsOption = {
-    origin:'*',
-    optionsSuccessStatus:"",
-    methods:"GET,PUT, POST, DELETE, UPDATE"
+const corsOptions = {
+    origin:'http://localhost:3000',
+    optionsSuccessStatus:200,
+    credentials:true,  
+    methods:" GET,PUT, POST, DELETE, UPDATE"
 }
-app.use(cors(corsOption))
+
+app.use(cors(corsOptions));
 
 //routes
 const UAPI = require('./Model_API')
